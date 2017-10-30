@@ -1,0 +1,8 @@
+name: smuledt
+version: 0.1.0
+description: A simple Smule Sing! media downloader written in Dart.
+author: Zerocchi
+homepage: http://lyrae.us
+dependencies: 
+  http: any
+  html: any
