@@ -6,22 +6,22 @@ import 'package:html/parser.dart' show parse;
 
 void main(List<String> args) {
   String link = args[0];
-  link_parser(link);
+  linkParser(link);
 }
 
-void link_parser(String link) {
+void linkParser(String link) {
   http.read(link).then((res) {
     var doc = parse(res);
-    var media_title = doc.getElementsByTagName("meta")[22].attributes['content'];
-    var media_link = doc.getElementsByTagName("meta")[25].attributes['content'].replaceAll('amp;','');
-    media_download(media_link, media_title);
+    var mediaTitle = doc.getElementsByTagName("meta")[22].attributes['content'];
+    var mediaLink = doc.getElementsByTagName("meta")[25].attributes['content'].replaceAll('amp;','');
+    mediaDownloader(mediaLink, mediaTitle);
   });
 }
 
-void media_download(String media_link, String media_title) {
+void mediaDownloader(String media_link, String mediaTitle) {
   new HttpClient().getUrl(Uri.parse(media_link))
     .then((HttpClientRequest req) => req.close())
     .then((HttpClientResponse res) {
-      res.pipe(new File(media_title).openWrite());
+      res.pipe(new File(mediaTitle).openWrite());
     });
 }
