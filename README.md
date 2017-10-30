@@ -1,4 +1,7 @@
 # smuledt
+
+[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php) [![Dart](https://img.shields.io/badge/Written%20in-Dart-lightgrey.svg)](https://www.dartlang.org/)
+
 Re-implementation of `smulerb` in Dart.
 
 # How to use
