@@ -8,7 +8,7 @@ Re-implementation of `smulerb` in Dart.
 0. Assuming you have Dart SDK installed in your machine.
 1. Clone or download this repo.
 2. Extract the files to wherever you want, and change current directory to the directory where `smule.dart` was extracted.
-3. run `pub get`.
+3. Run `pub get`.
 4. Make the `smule.dart` file executable by using `chmod a+x`.
 5. Download a song or video from Smule by using the following command on Terminal.
 ```
