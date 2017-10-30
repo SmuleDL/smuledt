@@ -4,7 +4,7 @@
 
 Re-implementation of `smulerb` in Dart.
 
-# How to use
+## How to use
 0. Assuming you have Dart SDK installed in your machine.
 1. Clone or download this repo.
 2. Extract the files to wherever you want, and change current directory to the directory where `smule.dart` was extracted.
