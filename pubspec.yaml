@@ -6,3 +6,4 @@ homepage: http://lyrae.us
 dependencies: 
   http: any
   html: any
+  dotenv: "^0.1.3+3"
