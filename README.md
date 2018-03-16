@@ -20,10 +20,12 @@ e.g.
 ```
 5. The file will be downloaded at the same location where `smule.dart` is placed.
 
+P/S: You can change default download location within `.env` file.
+
 ## Checklists
 
 - [x] Accept link arguments from terminal.
 - [ ] Add exceptions.
 - [ ] Add progress bar during file download.
-- [ ] Add ability to change default download location.
+- [x] Add ability to change default download location.
 
