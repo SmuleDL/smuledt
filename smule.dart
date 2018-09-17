@@ -7,14 +7,19 @@ import 'package:dotenv/dotenv.dart' show load, env;
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' show parse;
 
-import 'Collab.dart';
-
 void main(List<String> args) {
 
   load(); // load env
 
   String link = args[0];
   linkParser(link);
+}
+
+// Collab class
+class Collab {
+  String url;
+  String description;
+  String imageUrl;
 }
 
 Collab collabParser(doc) {
@@ -36,11 +41,19 @@ linkParser(String link) async {
     var collab = collabParser(doc);
     var collabUrl = collab.url;
     var collabDesc = collab.description;
+    var collabTitle = titleParser(collabDesc);
     var collabImg = collab.imageUrl;
-    print("Downloading...");
+    print("Downloading: $collabTitle");
     //mediaDownloader(collabUrl, collabDesc);
-    getMedia(collabUrl, collabDesc);
+    getMedia(collabUrl, collabTitle);
   });
+}
+
+titleParser(String description) {
+  String info = description.split('on Smule')[0];
+  String title = info.split('recorded by')[0].trim();
+  String singers = info.split('recorded by')[1].replaceAll('and', '&').trim();
+  return "${title} (${singers})";
 }
 
 @deprecated
@@ -60,7 +73,7 @@ void getMedia(String link, String title) {
   data.then((buffer) {
     // TODO: Check if folder exists
     File file = new File("${env['DL_DEFAULT']}/$title.mp4");
-    RandomAccessFile rf = file.openSync(mode: FileMode.WRITE);
+    RandomAccessFile rf = file.openSync(mode: FileMode.write);
     rf.writeFromSync(buffer);
     rf.flushSync();
     rf.closeSync();
